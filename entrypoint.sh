@@ -15,7 +15,7 @@ sed -i "s#UUID#$UUID#g;s#WS_PATH_A#${WS_PATH_A}#g;s#WS_PATH_B#${WS_PATH_B}#g" co
 sed -i "s#WS_PATH_A#${WS_PATH_A}#g;s#WS_PATH_B#${WS_PATH_B}#g" /etc/nginx/nginx.conf
 
 # 伪装核心执行文件
-RELEASE_RANDOMNESS=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)
+RELEASE_RANDOMNESS=$(openssl rand -hex 3)
 mv v ${RELEASE_RANDOMNESS}
 
 # 如果有设置哪吒探针三个变量,会安装。如果不填或者不全,则不会安装
